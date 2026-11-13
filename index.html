@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CamXcorp offers welcoming, home-style residential living in Stone Mountain, Georgia, centered on comfort, dignity, and everyday support.">
+  <title>CamXcorp | A Place to Call Home</title>
+  <style>
+    :root {
+      --navy: #102b49;
+      --navy-deep: #0a1e34;
+      --gold: #c6a45b;
+      --gold-light: #eadbb7;
+      --cream: #f7f5ef;
+      --ink: #263443;
+      --muted: #667381;
+      --white: #fff;
+      --shadow: 0 16px 45px rgba(16,43,73,.12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #fff;
+      font-family: "Segoe UI", Arial, sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96);
+      border-bottom: 1px solid #e9e6de; backdrop-filter: blur(12px);
+    }
+    .nav { min-height: 76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color: var(--navy); font-size: 1.55rem; font-weight: 800; letter-spacing: .04em; text-decoration:none; }
+    .brand span { color: var(--gold); }
+    nav { display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--navy); font-size:.93rem; font-weight:650; }
+    nav a:hover { color:#9a782f; }
+    .nav-cta, .button {
+      display:inline-block; border-radius:999px; padding:12px 21px; font-weight:700;
+      text-decoration:none; background:var(--gold); color:var(--navy-deep); border:0;
+    }
+    .hero {
+      color:#fff; min-height:610px; display:flex; align-items:center; position:relative;
+      background: linear-gradient(90deg, rgba(8,28,49,.94) 0%, rgba(8,28,49,.78) 48%, rgba(8,28,49,.22) 100%),
+      url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85") center/cover;
+    }
+    .hero-content { max-width:680px; padding:90px 0; }
+    .eyebrow { color:var(--gold-light); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:800; }
+    h1 { font-size:clamp(2.6rem, 6vw, 4.8rem); line-height:1.06; margin:18px 0; letter-spacing:-.035em; }
+    .hero p { max-width:590px; color:#edf1f5; font-size:1.13rem; margin:0 0 30px; }
+    .hero .button { margin-right:12px; }
+    .button-outline { display:inline-block; border:1px solid rgba(255,255,255,.8); color:#fff; border-radius:999px; padding:11px 20px; text-decoration:none; font-weight:700; }
+    .trust-strip { background:var(--navy); color:#fff; }
+    .trust-inner { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:25px 0; text-align:center; }
+    .trust-inner strong { display:block; color:var(--gold-light); font-size:1.05rem; }
+    .trust-inner span { font-size:.9rem; color:#e3e9ef; }
+    section { padding:86px 0; }
+    .section-kicker { color:#98752e; text-transform:uppercase; letter-spacing:.16em; font-size:.76rem; font-weight:800; }
+    h2 { color:var(--navy); font-size:clamp(2rem,4vw,3rem); line-height:1.15; margin:10px 0 18px; letter-spacing:-.025em; }
+    .lead { color:var(--muted); font-size:1.08rem; max-width:760px; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center; }
+    .photo {
+      min-height:390px; border-radius:var(--radius); background-position:center; background-size:cover;
+      box-shadow:var(--shadow);
+    }
+    .photo-home { background-image:url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"); }
+    .photo-living { background-image:url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"); }
+    .photo-people { background-image:url("https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=85"); }
+    .stat-card {
+      background:var(--cream); border-left:5px solid var(--gold); border-radius:12px;
+      padding:23px 25px; margin-top:25px;
+    }
+    .stat-card strong { color:var(--navy); font-size:1.35rem; display:block; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:34px; }
+    .card { background:#fff; border:1px solid #ece9e1; border-radius:var(--radius); padding:27px; box-shadow:0 8px 25px rgba(16,43,73,.05); }
+    .card .number { color:var(--gold); font-size:1.8rem; font-weight:800; }
+    .card h3 { color:var(--navy); margin:7px 0 9px; font-size:1.15rem; }
+    .card p { color:var(--muted); margin:0; }
+    .properties { background:var(--cream); }
+    .property-banner {
+      margin-top:32px; padding:34px; border-radius:var(--radius); background:var(--navy); color:#fff;
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+    }
+    .property-banner strong { display:block; color:var(--gold-light); font-size:2.5rem; line-height:1; }
+    .property-banner p { margin:10px 0 0; color:#e4eaf0; }
+    .check-list { list-style:none; padding:0; margin:24px 0 0; }
+    .check-list li { padding:10px 0 10px 32px; position:relative; border-bottom:1px solid #eeeae1; }
+    .check-list li:before { content:"✓"; position:absolute; left:0; color:#9a782f; font-weight:900; }
+    .audience { background:var(--navy); color:#fff; }
+    .audience h2 { color:#fff; }
+    .audience .lead { color:#dce4eb; }
+    .audience .card { background:#173957; border-color:#2c4c69; color:#fff; }
+    .audience .card h3 { color:var(--gold-light); }
+    .audience .card p { color:#e1e8ee; }
+    .contact { background:var(--cream); }
+    .contact-panel { display:grid; grid-template-columns:1.1fr .9fr; gap:36px; background:#fff; border-radius:22px; padding:38px; box-shadow:var(--shadow); }
+    .contact-details { display:grid; gap:17px; margin-top:24px; }
+    .contact-item { display:flex; gap:13px; align-items:flex-start; }
+    .contact-item b { display:block; color:var(--navy); }
+    .contact-item a { color:#80601e; text-decoration:none; overflow-wrap:anywhere; }
+    .contact-note { background:var(--navy); color:#fff; padding:30px; border-radius:16px; display:flex; flex-direction:column; justify-content:center; }
+    .contact-note h3 { color:var(--gold-light); font-size:1.6rem; margin:0 0 12px; }
+    footer { background:var(--navy-deep); color:#d8e0e8; padding:26px 0; font-size:.9rem; }
+    footer .foot { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    footer strong { color:#fff; }
+    @media (max-width:800px) {
+      .nav { padding:15px 0; align-items:flex-start; flex-direction:column; }
+      nav { gap:13px; }
+      .nav-cta { display:none; }
+      .hero { min-height:560px; background-position:60% center; }
+      .two-col, .contact-panel { grid-template-columns:1fr; }
+      .grid-3 { grid-template-columns:1fr; }
+      .trust-inner { grid-template-columns:1fr; gap:14px; }
+      .property-banner { align-items:flex-start; flex-direction:column; }
+      section { padding:64px 0; }
+      .photo { min-height:290px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">CAM<span>X</span>CORP</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#properties">Our Properties</a>
+        <a href="#services">Support</a>
+        <a href="#who-we-serve">Who We Serve</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="tel:14042770931">Call 404-277-0931</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Host-home living · Stone Mountain, Georgia</div>
+          <h1>A Place to Call Home.<br>Support to Live Well.</h1>
+          <p>CamXcorp offers a welcoming, home-style residential setting designed around comfort, dignity, and everyday support.</p>
+          <a class="button" href="#contact">Start a Conversation</a>
+          <a class="button-outline" href="#properties">Explore Our Homes</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <div><strong>Comfort</strong><span>A welcoming place to feel at home</span></div>
+        <div><strong>Dignity</strong><span>Respect for each person's preferences</span></div>
+        <div><strong>Everyday Support</strong><span>Encouraging independence and routine</span></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container two-col">
+        <div>
+          <div class="section-kicker">A Home with Heart</div>
+          <h2>Supportive living with a personal approach.</h2>
+          <p class="lead">CamXcorp is focused on providing a comfortable, supportive residential environment where adults can feel welcomed, respected, and at home.</p>
+          <p>We believe good support starts with listening—understanding each person's needs, preferences, strengths, and goals. Our aim is to help residents maintain as much independence as possible while having support close by.</p>
+          <div class="stat-card">
+            <strong>Six Properties. One Commitment.</strong>
+            CamXcorp proudly owns and operates six residential properties, providing multiple home environments designed to offer comfort, dignity, and supportive living.
+          </div>
+        </div>
+        <div class="photo photo-home" role="img" aria-label="Welcoming residential home exterior"></div>
+      </div>
+    </section>
+
+    <section class="properties" id="properties">
+      <div class="container">
+        <div class="section-kicker">Our Residential Homes</div>
+        <h2>Six properties. A shared commitment to home.</h2>
+        <p class="lead">Our homes are located in the Stone Mountain, Georgia area. Each offers a residential setting where comfort, respect, and supportive daily living matter.</p>
+        <div class="grid-3">
+          <article class="card"><div class="number">01</div><h3>Home-style environment</h3><p>A welcoming household atmosphere designed to feel familiar and comfortable.</p></article>
+          <article class="card"><div class="number">02</div><h3>Room to feel at home</h3><p>Residential living with attention to personal routines and preferences.</p></article>
+          <article class="card"><div class="number">03</div><h3>Support close by</h3><p>Everyday assistance shaped around the agreed living arrangement.</p></article>
+        </div>
+        <div class="property-banner">
+          <div><strong>6 Properties</strong><p>Owned and operated by CamXcorp in the Stone Mountain, Georgia area.</p></div>
+          <a class="button" href="#contact">Ask About Availability</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container two-col">
+        <div class="photo photo-living" role="img" aria-label="Comfortable home interior"></div>
+        <div>
+          <div class="section-kicker">Everyday Support</div>
+          <h2>Thoughtful support for daily living.</h2>
+          <p class="lead">Support is shaped around the individual and the agreed living arrangement. Our goal is to help residents feel comfortable while maintaining as much independence as possible.</p>
+          <ul class="check-list">
+            <li>Home-style meals</li>
+            <li>Assistance with activities of daily living, as agreed</li>
+            <li>A supportive and welcoming household environment</li>
+            <li>Encouragement with daily routines and independence</li>
+            <li>Connections to community resources when helpful</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience" id="who-we-serve">
+      <div class="container">
+        <div class="section-kicker">Who We Aim to Serve</div>
+        <h2>A residential setting with people in mind.</h2>
+        <p class="lead">We welcome conversations with prospective residents, families, and referral partners to explore whether a CamXcorp home may be a good fit.</p>
+        <div class="grid-3">
+          <article class="card"><h3>Adults age 50 and older</h3><p>Our host-home focus is on adult men age 50 and older.</p></article>
+          <article class="card"><h3>Everyday living support</h3><p>Individuals who benefit from support with daily living and routines.</p></article>
+          <article class="card"><h3>Home-style residential living</h3><p>People seeking a smaller, welcoming residential environment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div>
+          <div class="section-kicker">A Comfortable Setting</div>
+          <h2>Let's explore whether it feels like the right fit.</h2>
+          <p class="lead">Finding the right home is an important decision. We welcome a conversation about the person's needs and preferences, room availability, living arrangements, services, expectations, and costs.</p>
+          <p>Contact us to discuss your situation and arrange an introductory conversation or visit.</p>
+        </div>
+        <div class="photo photo-people" role="img" aria-label="People enjoying time together"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="section-kicker">Let's Talk</div>
+            <h2>Start a conversation with CamXcorp.</h2>
+            <p class="lead">Call or email Mr. Cameron to discuss your needs, learn more about our homes, and ask about availability.</p>
+            <div class="contact-details">
+              <div class="contact-item"><div>☎</div><div><b>Call Mr. Cameron</b><a href="tel:14042770931">404-277-0931</a></div></div>
+              <div class="contact-item"><div>✉</div><div><b>Email</b><a href="mailto:cameronagc@gmail.com">cameronagc@gmail.com</a></div></div>
+              <div class="contact-item"><div>▤</div><div><b>Fax</b><span>678-825-2718</span></div></div>
+              <div class="contact-item"><div>⌖</div><div><b>Location</b><span>Stone Mountain, Georgia</span></div></div>
+            </div>
+          </div>
+          <aside class="contact-note">
+            <h3>A Place to Call Home.</h3>
+            <p>Comfort • Dignity • Everyday Support</p>
+            <a class="button" href="mailto:cameronagc@gmail.com?subject=CamXcorp%20Housing%20Inquiry">Email CamXcorp</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div><strong>CAMX CORP</strong> · Stone Mountain, Georgia</div>
+      <div>© <span id="year"></span> CamXcorp. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
